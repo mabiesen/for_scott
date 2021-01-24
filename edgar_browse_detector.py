@@ -1,8 +1,11 @@
 import requests
 import bs4
 import json
+import time
 from urllib.parse import urlparse
 from datetime import datetime
+
+FREQUENCY_IN_SECONDS = 60*15
 
 # For clarity breaking this URL into pieces
 # SOME_CIK of query string will be used for interpolation
@@ -87,4 +90,7 @@ def run_for_all_companies():
             print(f'No change for {company}')
 
 # ---------------MAIN-----------------------
-run_for_all_companies()
+#infinite loop
+while true:
+    run_for_all_companies()
+    time.sleep(FREQUENCY_IN_SECONDS)
