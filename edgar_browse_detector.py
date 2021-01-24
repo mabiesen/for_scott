@@ -63,27 +63,34 @@ def diff_arrays_of_hashes(new_arr, old_arr):
             diff.append(item)
     return diff
 
-def alert(company, cache_diff):
+def alert(company, cache_diff, url):
     print("A Change Was detected!!!")
     print("This might be the first time we evaluated this company, this could be a false positive")
-    print("Printing Each New Item:")
+    print("SENDING EMAIL")
+    subject_line = f'Subject: {company} has a new SEC filing!'
+    company_line = f'Company => {company}'
+    url_line = f'URL => {url}'
+    spacer = '-----------------------------------------'
+    diff_lines = []
     for item in cache_diff:
-        print(item)
-        print("")
+        diff_lines.append(str(item))
+    diff_lines = "\n".join(diff_lines) 
+    message = "\n".join([subject_line, company_line, url_line, spacer, diff_lines])
+    emailer.send_email(message)
 
 # THIS IS OUR PRIMARY METHOD
 def run_for_all_companies():
     for company in CIKS:
         date_and_time = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
         print(f'Evaluating {company} at {date_and_time}')
-        print(f'The URL is: {url}')
         url = build_url(CIKS[company])
+        print(f'The URL is: {url}')
         html = get_html_for_url(url)
         table_rows = get_table_rows_from_html(html)
         cached_stuff = read_cache(company)
         cache_diff = diff_arrays_of_hashes(table_rows, cached_stuff)
         if len(cache_diff) > 0:
-            alert(company, cache_diff)
+            alert(company, cache_diff, url)
             write_to_cache(company, cache_diff + cached_stuff)
         else:
             print(f'No change for {company}')
@@ -91,6 +98,9 @@ def run_for_all_companies():
 # ---------------MAIN-----------------------
 #infinite loop
 print("STARTING PROGRAM")
-while true:
+while True:
     run_for_all_companies()
+    print("")
+    print(f'Sleeping for {FREQUENCY_IN_SECONDS}')
+    print("")
     time.sleep(FREQUENCY_IN_SECONDS)
