@@ -2,8 +2,8 @@ import smtplib, ssl
 
 PORT = 465  # For SSL
 SMTP_SERVER = "smtp.gmail.com"
-SENDER_EMAIL = "upandcomming88@gmail.com"  # Enter your address
-RECEIVER_EMAIL = "upandcomming88@gmail.com"  # Enter receiver address
+SENDER_EMAIL = "dummy_email@gmail.com"  # Enter your address
+RECEIVER_EMAIL = "dummy_email@gmail.com"  # Enter receiver address
 
 # Prompt will happen the moment we load this file
 PASSWORD = input("Type your email password and press enter: ")
