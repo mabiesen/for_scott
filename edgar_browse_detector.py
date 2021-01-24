@@ -11,8 +11,6 @@ QUERY_STRING = 'cgi-bin/browse-edgar?CIK=SOME_CIK&owner=exclude'
 
 CIKS = {'churchill_capital_corp_iv': '1811210'}
 
-CACHE_DIRECTORY = ''
-
 def build_url(cik):
     query = QUERY_STRING.replace("SOME_CIK",cik)
     return PRIMARY_URL + query 
