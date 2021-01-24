@@ -1,5 +1,7 @@
 import smtplib, ssl
 
+# https://realpython.com/python-send-email/
+
 PORT = 465  # For SSL
 SMTP_SERVER = "smtp.gmail.com"
 SENDER_EMAIL = "dummy_email@gmail.com"  # Enter your address
