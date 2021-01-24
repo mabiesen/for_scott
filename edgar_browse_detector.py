@@ -2,6 +2,7 @@ import requests
 import bs4
 import json
 import time
+import emailer
 from datetime import datetime
 
 FREQUENCY_IN_SECONDS = 60*15
@@ -89,6 +90,8 @@ def run_for_all_companies():
 
 # ---------------MAIN-----------------------
 #infinite loop
+EMAIL_PASSWORD = emailer.get_password()
+print("STARTING PROGRAM")
 while true:
     run_for_all_companies()
     time.sleep(FREQUENCY_IN_SECONDS)
