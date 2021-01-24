@@ -2,7 +2,6 @@ import requests
 import bs4
 import json
 import time
-from urllib.parse import urlparse
 from datetime import datetime
 
 FREQUENCY_IN_SECONDS = 60*15
