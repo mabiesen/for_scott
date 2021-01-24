@@ -7,7 +7,6 @@ from datetime import datetime
 
 FREQUENCY_IN_SECONDS = 60*15
 
-# For clarity breaking this URL into pieces
 # SOME_CIK of query string will be used for interpolation
 PRIMARY_URL = 'https://www.sec.gov/'
 QUERY_STRING = 'cgi-bin/browse-edgar?CIK=SOME_CIK&owner=exclude'
