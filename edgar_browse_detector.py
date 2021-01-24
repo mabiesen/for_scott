@@ -90,7 +90,6 @@ def run_for_all_companies():
 
 # ---------------MAIN-----------------------
 #infinite loop
-EMAIL_PASSWORD = emailer.get_password()
 print("STARTING PROGRAM")
 while true:
     run_for_all_companies()
