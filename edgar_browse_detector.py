@@ -75,7 +75,7 @@ def alert(company, cache_diff):
 # THIS IS OUR PRIMARY METHOD
 def run_for_all_companies():
     for company in CIKS:
-        date_and_time = datetime.now().strftime("%d/%m/%Y %H:%M:%S")
+        date_and_time = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
         print(f'Evaluating {company} at {date_and_time}')
         print(f'The URL is: {url}')
         url = build_url(CIKS[company])
