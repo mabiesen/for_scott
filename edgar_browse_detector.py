@@ -24,7 +24,7 @@ def get_html_for_url(url):
   return result.text #we dont need the result status detail, just html
 
 # parsing html for table in question, getting rows, td elements
-# iterating td elements and putting into array, returning array
+# iterating td elements and putting into array, returning array of hashes
 def get_table_rows_from_html(html, table_class_name='tableFile2'):
   return_arr = []
   headers = ['filings','format','description','filed_eff','film_number']
