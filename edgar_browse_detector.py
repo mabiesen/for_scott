@@ -2,7 +2,7 @@ import requests
 import bs4
 import json
 import time
-import emailer
+import emailer # FYI this is the emailer.py file
 from datetime import datetime
 
 FREQUENCY_IN_SECONDS = 60*15
