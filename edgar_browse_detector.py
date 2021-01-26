@@ -19,9 +19,25 @@ def build_url(cik):
 
 # this is fetching the raw html
 def get_html_for_url(url):
-  result = requests.get(url)
-  result.raise_for_status()
-  return result.text #we dont need the result status detail, just html
+  # loop, make sure we do not exit function
+  # without the detail we need
+  text_var = ''
+  attempt_ct = 0
+  while True:
+      attempt_ct += 1
+      try:
+          result = requests.get(url)
+          result.raise_for_status()
+          text_var = result.text #we dont need the result status detail, just html
+      except:
+          text_var = ''
+        
+      if text_var != '':
+          print(f'Attempt #{attempt_ct} to get html SUCCEEDED')
+          return text_var
+      
+        print(f'Attempt #{attempt_ct} to get html FAILED')
+      
 
 # parsing html for table in question, getting rows, td elements
 # iterating td elements and putting into array, returning array of hashes
