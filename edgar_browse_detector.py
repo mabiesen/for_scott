@@ -30,7 +30,8 @@ def get_html_for_url(url):
           result.raise_for_status()
           text_var = result.text #we dont need the result status detail, just html
           print(f'Attempt #{attempt_ct} to get html SUCCEEDED')
-          return text_var
+          if text_var != '':
+              return text_var
       except:
           print(f'Attempt #{attempt_ct} to get html FAILED')
       
