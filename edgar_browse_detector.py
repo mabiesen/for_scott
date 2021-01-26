@@ -36,7 +36,7 @@ def get_html_for_url(url):
           print(f'Attempt #{attempt_ct} to get html SUCCEEDED')
           return text_var
       
-        print(f'Attempt #{attempt_ct} to get html FAILED')
+      print(f'Attempt #{attempt_ct} to get html FAILED')
       
 
 # parsing html for table in question, getting rows, td elements
